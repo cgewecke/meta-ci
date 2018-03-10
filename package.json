@@ -4,7 +4,8 @@
   "description": "Experiment: multi-repo CI using meta",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup": "./scripts/install.sh",
+    "test": "./scripts/test.sh"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/cgewecke/meta-ci#readme",
   "devDependencies": {
-    "meta": "^1.0.48"
+    "meta-npm": "0.0.22",
+    "meta-pkgs": "^0.2.0",
+    "truffle-core": "^4.1.3"
   }
 }
