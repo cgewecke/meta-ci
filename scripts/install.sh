@@ -2,13 +2,13 @@
 
 # Install
 echo "Installing wild-truffle ..."
-#npm install
+npm install
 
 # For each target, run a top level install there, return here.
 echo "Installing zeppelin-solidity ..."
-#cd zeppelin-solidity
-#npm install
-#cd ..
+cd zeppelin-solidity
+npm install
+cd ..
 
 # Install dependencies via meta
 echo "Installing meta dependencies ..."

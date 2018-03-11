@@ -61,5 +61,5 @@ if [ "$SOLIDITY_COVERAGE" = true ]; then
     cat coverage/lcov.info | node_modules/.bin/coveralls
   fi
 else
-  ../node_modules/truffle-core/cli.js test "$@"
+  ./../build/cli.bundled.js test "$@"
 fi
