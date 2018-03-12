@@ -10,6 +10,10 @@ if [ "$ZEPPELIN" = true ]; then
   echo "Installing zeppelin-solidity ..."
   cd targets/zeppelin-solidity
   npm install
+  npm uninstall bignumber.js
+  npm uninstall chai-bignumber
+  npm install bignumber.js
+  npm install chai-bignumber
   cd ../..
 elif [ "$ARAGON" = true ]; then
   echo "Installing aragonOS ..."
@@ -20,12 +24,10 @@ elif [ "$COLONY" = true ]; then
   echo "Installing colonyNetwork ..."
   cd targets/colonyNetwork
   yarn
-  git submodule update --init --remote --recursive
   cd ../..
 fi
 
 npm install
-npm install --save-dev bignumber.js
 
 # Install dependencies via meta
 echo "Installing meta dependencies ..."
