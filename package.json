@@ -4,7 +4,7 @@
   "description": "Experiment: multi-repo CI using meta",
   "main": "index.js",
   "scripts": {
-    "ci": "./scripts/branch.sh",
+    "ci": "./scripts/ci.sh",
     "install:ci": "./scripts/install_ci.sh",
     "test": "ZEPPELIN=true ./scripts/test.sh",
     "test:zeppelin": "ZEPPELIN=true ./scripts/test.sh",

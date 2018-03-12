@@ -3,15 +3,15 @@ npm run build
 chmod +x build/cli.bundled.js
 
 if [ "$ZEPPELIN" = true ]; then
-  cd zeppelin-solidity
+  cd targets/zeppelin-solidity
   npm test
-  cd ..
+  cd ../..
 elif [ "$ARAGON" = true]; then
-  cd aragon-core
+  cd targets/aragonOS
   npm test
-  cd ..
+  cd ../..
 elif [ "$COLONY" = true]; then
-  cd aragon-core
-  npm test
-  cd ..
+  cd targets/colonyNetwork
+  npm run test:contracts
+  cd ../..
 fi

@@ -2,24 +2,27 @@
 
 # Install
 echo "Installing wild-truffle ..."
+npm install -g yarn
+npm install -g meta
 npm install
 
 # For matrix target, run a top level install there, return here.
 if [ "$ZEPPELIN" = true ]; then
   echo "Installing zeppelin-solidity ..."
-  cd zeppelin-solidity
+  cd targets/zeppelin-solidity
   npm install
-  cd ..
+  cd ../..
 elif [ "$ARAGON" = true]; then
   echo "Installing aragonOS ..."
-  cd aragonOS
+  cd targets/aragonOS
   npm install
-  cd ..
+  cd ../..
 elif [ "$COLONY" = true]; then
-  echo "Installing colony-network ..."
-  cd colony-network
-  npm install
-  cd ..
+  echo "Installing colonyNetwork ..."
+  cd targets/colonyNetwork
+  yarn
+  git submodule update --init
+  cd ../..
 fi
 
 # Install dependencies via meta
