@@ -27,7 +27,7 @@ fi
 
 # Install dependencies via meta
 echo "Installing meta dependencies ..."
-source .wild-truffle
+source .wildtruffle
 meta git update
 meta git checkout $TRUFFLE_BRANCH
 meta npm install
