@@ -32,7 +32,7 @@ if ! [ -z $1 ]; then
 fi
 
 # Write truffle branch we should checkout in CI
-printf "TRUFFLE_BRANCH=$BRANCH" > .wildtruffle
+printf "TRUFFLE_BRANCH=\"$BRANCH\"" > .wildtruffle
 
 # Make sure git thinks we changed something
 date +%s > .dirty

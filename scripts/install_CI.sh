@@ -65,6 +65,10 @@ echo ""
 # Load TRUFFLE_BRANCH variable
 source .wildtruffle
 
+echo ""
+echo "Checking out $TRUFFLE_BRANCH ..."
+echo ""
+
 # Run `meta` setup
 meta git update
 meta git checkout $TRUFFLE_BRANCH
