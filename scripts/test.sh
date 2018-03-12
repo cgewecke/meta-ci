@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# Exit script as soon as a command fails.
+set -o errexit
+
 npm run build
 chmod +x build/cli.bundled.js
 

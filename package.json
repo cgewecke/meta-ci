@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/cgewecke/meta-ci#readme",
   "devDependencies": {
-    "bignumber.js": "^6.0.0",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "ganache-cli": "6.1.0-beta.4",
