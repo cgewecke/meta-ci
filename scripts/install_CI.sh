@@ -11,8 +11,8 @@ if [ "$ZEPPELIN" = true ]; then
   npm install
   cd ..
 elif [ "$ARAGON" = true]; then
-  echo "Installing aragon-core ..."
-  cd aragon-core
+  echo "Installing aragonOS ..."
+  cd aragonOS
   npm install
   cd ..
 elif [ "$COLONY" = true]; then
@@ -21,7 +21,6 @@ elif [ "$COLONY" = true]; then
   npm install
   cd ..
 fi
-
 
 # Install dependencies via meta
 echo "Installing meta dependencies ..."
