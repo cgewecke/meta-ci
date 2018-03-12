@@ -13,10 +13,9 @@ fi
 
 # Get wildtruffle branch name
 WILD=$(git rev-parse --abbrev-ref HEAD)
-EXISTS=$(git ls-remote --heads git@github.com:trufflesuite/wild-truffle.git $WILD | wc -l)
+EXISTS=$(git ls-remote --heads git@github.com:cgewecke/meta-ci.git $WILD | wc -l)
 echo "EXISTS: $EXISTS"
 echo "WILD: $WILD"
-exit
 
 # Set default truffle branch to checkout
 BRANCH="develop"
@@ -40,7 +39,7 @@ git add -A
 git commit -a -m "Truffle branch \"$BRANCH\" at $TIME_ID"
 
 # Push
-if [[$EXISTS == 0]]; then
+if [ $EXISTS == 0 ]; then
   git push --set-upstream origin $WILD
 else
   git push
