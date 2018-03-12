@@ -10,11 +10,15 @@ if [ "$ZEPPELIN" = true ]; then
   echo "Installing zeppelin-solidity ..."
   cd targets/zeppelin-solidity
   npm install
+
+  # :/ !!!
   npm uninstall bignumber.js
   npm uninstall chai-bignumber
   npm install bignumber.js
   npm install chai-bignumber
+
   cd ../..
+
 elif [ "$ARAGON" = true ]; then
   echo "Installing aragonOS ..."
   cd targets/aragonOS
