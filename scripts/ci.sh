@@ -4,6 +4,7 @@
 STATUS=$(git status)
 
 if [[ $STATUS = *"master"* || $STATUS = *"develop"* ]]; then
+  echo ""
   echo "** ERROR **"
   echo "You're on a protected branch (master/develop)."
   echo "Create a throwaway branch first: git checkout -b <throw-away-name>"
@@ -18,12 +19,12 @@ EXISTS=$(git ls-remote --heads git@github.com:cgewecke/meta-ci.git $WILD | wc -l
 # Set default truffle branch to checkout
 BRANCH="develop"
 
-# Set to argv if present
+# Set to check branch to command line arg if present
 if ! [ -z $1 ]; then
   BRANCH=$1
 fi
 
-# Set truffle branch to checkout in CI
+# Write truffle branch we should checkout in CI
 printf "TRUFFLE_BRANCH=$BRANCH" > .wildtruffle
 
 # Make sure git thinks we changed something
@@ -33,14 +34,25 @@ date +%s > .dirty
 TIME_ID=`date +%Y-%m-%d::%H:%M:%S`
 
 # Commit
+echo ""
+echo "Committing..."
+echo ""
+
 git add -A
 git commit -a -m "Truffle branch \"$BRANCH\" at $TIME_ID"
 
 # Push
+echo ""
+echo "Pushing..."
+echo ""
+
 if [ $EXISTS == 0 ]; then
   git push --set-upstream origin $WILD
 else
   git push
 fi
 
+# Goodbye
+echo ""
 echo "Running \"$BRANCH\" on Travis (shortly)."
+echo ""
