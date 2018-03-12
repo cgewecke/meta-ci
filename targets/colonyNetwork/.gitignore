@@ -9,6 +9,5 @@ parityPassword
 **/build/*
 coverage
 coverage.json
-lib/dappsys
 test-accounts.json
 .vscode/
