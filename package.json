@@ -10,7 +10,7 @@
     "test:zeppelin": "ZEPPELIN=true ./scripts/test.sh",
     "test:aragon": "ARAGON=true ./scripts/test.sh",
     "test:colony": "COLONY=true ./scripts/test.sh",
-    "test:ci": "./scripts.test.sh",
+    "test:ci": "./scripts/test.sh",
     "build": "npm run build-cli",
     "build-cli": "webpack --config ./cli.webpack.config.js"
   },
