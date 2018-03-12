@@ -14,8 +14,6 @@ fi
 # Get wildtruffle branch name
 WILD=$(git rev-parse --abbrev-ref HEAD)
 EXISTS=$(git ls-remote --heads git@github.com:cgewecke/meta-ci.git $WILD | wc -l)
-echo "EXISTS: $EXISTS"
-echo "WILD: $WILD"
 
 # Set default truffle branch to checkout
 BRANCH="develop"
