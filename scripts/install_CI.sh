@@ -1,24 +1,31 @@
 #!/usr/bin/env bash
 
-# Install
-echo "Installing wild-truffle ..."
-npm install -g yarn
-npm install -g meta
+# Installs wild-truffle and its targets on Travis.
 
-# For matrix target, run a top level install there, return here.
-if [ "$ZEPPELIN" = true ]; then
-  echo "Installing zeppelin-solidity ..."
-  cd targets/zeppelin-solidity
-  npm install
-
-  # :/ !!!
+# Hack: `chai-bignumber` not recognizing `truffle` bignumbers
+# as instances unless we do this post install for Zeppelin.
+patchBigNumber(){
   npm uninstall bignumber.js
   npm uninstall chai-bignumber
   npm install bignumber.js
   npm install chai-bignumber
+}
 
+# Install wild-truffle
+echo "Installing wild-truffle ..."
+npm install -g yarn
+npm install -g meta
+npm install
+
+# Install matrix target
+if [ "$ZEPPELIN" = true ]; then
+  echo ""
+  echo "Installing zeppelin-solidity ..."
+  echo ""
+  cd targets/zeppelin-solidity
+  npm install
+  patchBigNumber
   cd ../..
-
 elif [ "$ARAGON" = true ]; then
   echo "Installing aragonOS ..."
   cd targets/aragonOS
@@ -31,9 +38,8 @@ elif [ "$COLONY" = true ]; then
   cd ../..
 fi
 
-npm install
 
-# Install dependencies via meta
+# Install truffle dependencies via meta
 echo "Installing meta dependencies ..."
 source .wildtruffle
 meta git update

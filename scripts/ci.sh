@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Run this locally. It sets up the environment so Travis knows
+# which `truffle` branch to check out and pushes a throwaway branch
+# to GH, triggering the CI build.
+#
+# usage: $ npm run ci <truffle-branch-to-checkout>
+#
+
 # Verify we're not attempting to push to a protected branch
 STATUS=$(git status)
 

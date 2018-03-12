@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
+# Runs tests in Travis.
+
 # Exit script as soon as a command fails.
 set -o errexit
 
+# Build truffle, post branch checkout
 npm run build
 chmod +x build/cli.bundled.js
 
+# Run unit tests
 if [ "$ZEPPELIN" == true ]; then
   cd targets/zeppelin-solidity
   npm test
